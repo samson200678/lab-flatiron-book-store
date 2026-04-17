@@ -44,4 +44,25 @@ const bookStore = {
 }
 
 // Write your code here!
+const header = document.getElementById("header");
+header.textContent = bookStore.name;
 
+const bookListItem = document.getElementById("delete-this");
+
+// clear template
+bookListItem.innerHTML = "";
+
+bookStore.books.forEach(book => {
+    const title = document.createElement("h3");
+    title.textContent = book.title;
+
+    const author = document.createElement("p");
+    author.textContent = book.author;
+
+    const img = document.createElement("img");
+    img.src = book.imageUrl;   
+
+    bookListItem.appendChild(title);
+    bookListItem.appendChild(author);
+    bookListItem.appendChild(img);
+});
